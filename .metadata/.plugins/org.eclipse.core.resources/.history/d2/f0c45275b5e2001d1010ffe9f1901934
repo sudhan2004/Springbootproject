@@ -1,0 +1,21 @@
+
+package com.example.footballdemo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.footballdemo.footballdata.Football;
+import com.example.footballdemo.repository.FootballRepository;
+
+@Service
+
+public class FootballService {
+	
+	FootballRepository frepo;
+	public List<Football> getAllValues()
+	{
+		List<Football> value = frepo.findAll();
+		return value;
+	}
+}

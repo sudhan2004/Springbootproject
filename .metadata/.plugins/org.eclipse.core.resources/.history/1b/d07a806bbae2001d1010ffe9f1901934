@@ -1,0 +1,20 @@
+package com.example.footballdemo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.footballdemo.footballdata.Football;
+import com.example.footballdemo.service.FootballService;
+
+@RestController
+public class FootballController {
+	@Autowired
+	FootballService fservice;
+	public List<Football> getValues()
+	{
+		List<Football> values = fservice.getAllValues(); 
+		return values;
+	}
+}

@@ -1,0 +1,13 @@
+package com.example.footballdemo.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FootballController {
+	
+	foot
+	public List<Football> getValues()
+	{
+		List<Football> values=
+	}
+}

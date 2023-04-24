@@ -1,0 +1,5 @@
+package com.example.footballdemo.repository;
+
+public interface FootballRepository {
+
+}
