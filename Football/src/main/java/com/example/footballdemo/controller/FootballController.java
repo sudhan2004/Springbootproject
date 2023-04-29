@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.footballdemo.footballdata.Football;
@@ -25,7 +26,7 @@ public class FootballController {
 		List<Football> values = fservice.getAllRecords(); 
 		return values;
 	}
-	@GetMapping("/get/{num}")
+	@GetMapping("/get/{num} ")
 	public Optional<Football> getRecords(@PathVariable("num") int num)
 	{
 		return fservice.getAllRecords(num); 
@@ -49,5 +50,30 @@ public class FootballController {
 	public void deleteRecords(@PathVariable("num") int num)
 	{
 		fservice.deleteRecords(num);
+	}
+	@GetMapping("/get/{field}")
+	public List<Football> sortStudents(@PathVariable String field)
+	{
+		return fservice.sortStudents(field);
+	}
+	@GetMapping("/get/{offset}/{pageSize}")
+	public List<Football> paging(@PathVariable int offset,@PathVariable int pageSize)
+	{
+		return fservice.paging(offset, pageSize);
+	}
+	@GetMapping("/get/{offset}/{pageSize}/{field}")
+	public List<Football> pagingAndSorting(@PathVariable int offset,@PathVariable int pageSize,@PathVariable String field)
+	{
+		return fservice.pagingAndSorting(offset, pageSize, field);
+	}
+	@GetMapping("/get/fetchPlayersByNamePrefix")
+	public List<Football> fetchPlayersByNamePrefix(@RequestParam String prefix)
+	{
+		return fservice.fetchPlayersByNamePrefix(prefix);
+	}
+	@GetMapping("/get/fetchPlayersByNameSuffix")
+	public List<Football> fetchPlayersByNameSuffix(@RequestParam String suffix)
+	{
+		return fservice.fetchPlayersByNameSuffix(suffix);
 	}
 }
